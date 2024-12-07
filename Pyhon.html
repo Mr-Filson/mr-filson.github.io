@@ -1,0 +1,212 @@
+<html><head><base href="." /><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Python Code Editor</title>
+<style>
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #1e1e1e;
+    color: #fff;
+    line-height: 1.6;
+}
+
+.navbar {
+    background: #2d2d2d;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.navbar h1 {
+    color: #61dafb;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.editor-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+#editor {
+    width: 100%;
+    height: 400px;
+    font-family: 'Monaco', monospace;
+    font-size: 14px;
+    padding: 1rem;
+    background: #2d2d2d;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-run {
+    background: #61dafb;
+    color: #000;
+}
+
+.btn-download {
+    background: #28a745;
+    color: #fff;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.output {
+    background: #2d2d2d;
+    padding: 1rem;
+    border-radius: 4px;
+    min-height: 100px;
+    white-space: pre-wrap;
+}
+
+.python-logo {
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+</style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>
+            <svg class="python-logo" width="32" height="32" viewBox="0 0 256 255" xmlns="http://www.w3.org/2000/svg">
+                <path d="M126.916.072c-64.832 0-60.784 28.115-60.784 28.115l.072 29.128h61.868v8.745H41.631S.145 61.355.145 126.77c0 65.417 36.21 63.097 36.21 63.097h21.61v-30.356s-1.165-36.21 35.632-36.21h61.362s34.475.557 34.475-33.319V33.97S194.67.072 126.916.072zM92.802 19.66a11.12 11.12 0 0 1 11.13 11.13 11.12 11.12 0 0 1-11.13 11.13 11.12 11.12 0 0 1-11.13-11.13 11.12 11.12 0 0 1 11.13-11.13z" fill="#61dafb"/>
+            </svg>
+            Python Code Editor
+        </h1>
+    </nav>
+
+    <div class="container">
+        <div class="editor-container">
+            <textarea id="editor" placeholder="Write your Python code here...">print("Hello, World!")
+# Write simple code examples that won't cause stack overflow
+x = 5
+y = 10
+print(f"Sum of {x} and {y} is: {x + y}")
+
+# Simple loop example
+for i in range(5):
+    print(f"Counter: {i}")</textarea>
+        </div>
+
+        <div class="buttons">
+            <button class="btn btn-run" onclick="runCode()">Run Code</button>
+            <button class="btn btn-download" onclick="downloadCode()">Download Code</button>
+        </div>
+
+        <h3 style="margin: 1rem 0">Output:</h3>
+        <div class="output" id="output"></div>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pyodide/0.23.4/pyodide.js"></script>
+<script>
+let pyodideReadyPromise = null;
+let pyodide = null;
+
+async function initializePyodide() {
+    if (!pyodideReadyPromise) {
+        pyodideReadyPromise = loadPyodide({
+            indexURL: "https://cdn.jsdelivr.net/pyodide/v0.23.4/full/"
+        }).then(result => {
+            pyodide = result;
+            return result;
+        });
+    }
+    return pyodideReadyPromise;
+}
+
+// Initialize Pyodide when the page loads
+initializePyodide();
+
+async function runCode() {
+    const output = document.getElementById('output');
+    
+    try {
+        // Make sure Pyodide is loaded
+        if (!pyodide) {
+            output.textContent = 'Loading Python environment...';
+            pyodide = await pyodideReadyPromise;
+        }
+
+        const code = document.getElementById('editor').value;
+        
+        // Redirect stdout to capture print statements
+        pyodide.runPython(`
+            import io, sys
+            sys.stdout = io.StringIO()
+        `);
+        
+        // Run the actual code
+        await pyodide.runPythonAsync(code);
+        
+        // Get the captured output
+        const stdout = pyodide.runPython("sys.stdout.getvalue()");
+        output.textContent = stdout;
+        
+        // Reset stdout
+        pyodide.runPython("sys.stdout = sys.__stdout__");
+    } catch (err) {
+        output.textContent = "Error: " + err.message;
+    }
+}
+
+function downloadCode() {
+    const code = document.getElementById('editor').value;
+    const blob = new Blob([code], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.style.display = 'none';
+    a.href = url;
+    a.download = 'python_code.py';
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+}
+
+// Add Ctrl+S support for downloading
+document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.key === 's') {
+        e.preventDefault();
+        downloadCode();
+    }
+});
+</script>
+</body></html>
