@@ -17,8 +17,7 @@ document.getElementById('orginal-content').style.display = 'none';
 		
 		
 function year() {
-	const cryear = new
-Date().getFullYear;
+	const cryear = new Date().getFullYear;
 	const resultElement = document.getElementById('result');
 			
 	if(cryear >= 2100) {
