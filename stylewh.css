@@ -1,0 +1,241 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+	background-image: url('BG4.png'); 
+	background-size: 1000px;
+	background-position: center;
+	background-size: cover;
+	color: #ffffff;
+	cursor: url(whCursor.png) 5 5, move;
+}
+
+header {
+    background:#1E2460;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+	min-width: 141vw;
+	height: 20vh;
+}
+
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+	cursor: url(whale2.png) 2 2, pointer;
+}
+
+main {
+    padding: 20px;
+    display: flex; 
+}
+
+section {
+    margin-bottom: 20px;
+    flex: 2;
+}
+.image-container {
+    flex-shrink: 0;
+	width: 400px;
+    margin-left: 20px;
+	border: 3px solid transparent;
+	zoom: 90%;
+}
+.image-container:hover {
+    flex-shrink: 0;
+    margin-left: 20px;
+	border: 3px inset #00FFFF;
+	cursor: url(zoom-whale.png) 5 5, zoom-in;
+	zoom: unset;
+}	
+
+footer {
+    text-align: center;
+    padding: 30px 0;
+    background: #6495ED;
+    color: white;
+	min-width: 141vw;
+}
+.btn {
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    background: #0B63F6;
+    box-shadow: 0 5px 0 #003CC5;
+	width: 135px;
+    height: 70px;
+	font-size: 24px;
+	margin: 0 auto;
+	display:block;
+}
+
+.btn:hover {
+    background: #003CC5;
+    box-shadow: none;
+    position: relative;
+    top: 5px;
+	cursor: url(lasta.png) 2 2, pointer;
+}
+#secnd-content {
+	display:none;
+}
+.text_m {
+  color:#7FFFD4;
+  font-size: 125%;
+}
+.text_n {
+  color:#7FFFD4;
+  font-size: 125%;
+  text-shadow: 5px 5px #558ABB;
+}
+.text_e {
+	color:#D0D0D0;
+	font-size: 150%;
+	text-shadow:1px 1px 2px blue, 0 0 1em blue, 0 0 0.2em blue;
+}
+.text_x {
+	color:#E5E4E2;
+	font-size: 125%;
+}
+.btn_new {
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    background: #0B63F6;
+    box-shadow: 0 5px 0 #003CC5;
+	width: 185px;
+    height: 70px;
+	font-size: 24px;
+	margin: 0 auto;
+	display:block;
+}
+
+.btn_new:hover {
+    background: #003CC5;
+    box-shadow: none;
+    position: relative;
+    top: 5px;
+	cursor: url(lasta.png) 2 2, pointer;
+}
+.bl {
+  float: left;
+  width: 150px;
+  margin: 0 15px;
+  background: #4682B4;
+  padding: 50px 10px;
+}
+#did-whales-extinct {
+	display:none;
+}
+.ut {
+	text-align: center;
+	font-size: 60px;
+}
+.number {
+	font-size:25px;
+}
+figcaption {
+	font-size: 150%;
+}
+.btn_new1 {
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    background: #0B63F6;
+    box-shadow: 0 5px 0 #003CC5;
+	width: 185px;
+    height: 70px;
+	font-size: 24px;
+	margin: 0 auto;
+	display:flex;
+	position: absolute;
+}
+
+.btn_new1:hover {
+    background: #003CC5;
+    box-shadow: none;
+    position: relative;
+    top: 5px;
+	cursor: url(lasta.png) 2 2, pointer;
+}
+.glitch {
+  font-size: 130px;
+  line-height: 1;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  text-decoration: none;
+  color: #fff;
+  &:before,
+  &:after{
+    display: block;
+    content: 'Киты вымерли?';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .8;
+  }
+  &:after {
+    color: #f0f;
+    z-index: -2;
+  }
+  &:before {
+    color: #0ff;
+    z-index: -1;
+  }
+  &:hover {
+    &:before {
+      animation: glitch 12s cubic-bezier(.25, .46, .45, .94) both infinite
+    }
+    &:after {
+      animation: glitch 12s cubic-bezier(.25, .46, .45, .94) reverse both infinite
+    }
+  }
+}
+@keyframes glitch {
+    0% {
+        -webkit-transform: translate(0);
+        transform: translate(0)
+    }
+    20% {
+        -webkit-transform: translate(-5px, 5px);
+        transform: translate(-5px, 5px)
+    }
+    40% {
+        -webkit-transform: translate(-5px, -5px);
+        transform: translate(-5px, -5px)
+    }
+    60% {
+        -webkit-transform: translate(5px, 5px);
+        transform: translate(5px, 5px)
+    }
+    80% {
+        -webkit-transform: translate(5px, -5px);
+        transform: translate(5px, -5px)
+    }
+    to {
+        -webkit-transform: translate(0);
+        transform: translate(0)
+    }
+}
