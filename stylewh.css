@@ -198,12 +198,13 @@ figcaption {
         padding: 10px 0;
         text-align: center;
         min-width: 100%; /* Заголовок занимает всю ширину */
-        height: 150px; /* Уменьшаем высоту заголовка */
+        height: 200px; /* Уменьшаем высоту заголовка */
     }
 
     nav ul li {
         display: block; /* Меню будет вертикальным */
         margin: 10px 0;
+	height: 150px;
     }
 
     nav ul li a {
