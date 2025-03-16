@@ -1,0 +1,381 @@
+@media (min-width: 1100px) {
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+	::-webkit-scrollbar-track {
+		-webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+		background-color: #0000FF;
+		border-radius: 10px;
+	}
+	::-webkit-scrollbar-thumb {
+		border-radius: 10px;
+		background: linear-gradient(180deg, #00c6fb, #005bea);
+	}
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+    /*    background-image: url('BG4.png'); */
+		background-color: #00008B;
+        background-size: 1200vw;
+        background-position: center;
+        background-size: cover;
+        color: #ffffff;
+        cursor: url(whCursor.png) 5 5, move;
+        height: 20vh;
+    }
+
+    header {
+        background: #1E2460;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        min-width: 141vw;
+        height: 20vh;
+    }
+
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+		background: linear-gradient(180deg, #00c6fb, #005bea);
+    }
+
+    nav ul li {
+        display: inline;
+        margin: 0 15px;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        cursor: url(whale2.png) 2 2, pointer;
+		margin-left: 100px;
+    }
+
+    main {
+        padding: 20px;
+        display: flex;
+        gap: 20px;
+        text-align: center;
+        color: #1E90FF;
+        font-weight: bold;
+    }
+
+    section {
+        margin-bottom: 20px;
+        flex: 2;
+    }
+
+    .image-container {
+        flex-shrink: 0;
+        width: 400px;
+        margin-left: 20px;
+        border: 3px solid transparent;
+        zoom: 90%;
+    }
+
+    .image-container:hover {
+        border: 3px inset #00FFFF;
+        cursor: url(zoom-whale.png) 5 5, zoom-in;
+        zoom: unset;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px 0;
+        background: #6495ED;
+        color: white;
+        min-width: 141vw;
+    }
+
+    .btn {
+        border: none;
+        border-radius: 10px;
+        text-decoration: none;
+        color: white;
+        background: #0B63F6;
+        box-shadow: 0 5px 0 #003CC5;
+        width: 135px;
+        height: 75px;
+        font-size: 24px;
+        margin: 0 auto;
+        display: block;
+		margin-left: 1280px;
+    }
+
+    .btn:hover {
+        background: #003CC5;
+        box-shadow: none;
+        position: relative;
+        top: 5px;
+        cursor: url(lasta.png) 2 2, pointer;
+    }
+
+    #secnd-content {
+        display: none;
+    }
+
+    .text_m {
+        color: #7FFFD4;
+        font-size: 125%;
+    }
+
+    .text_n {
+        color: #7FFFD4;
+        font-size: 125%;
+        text-shadow: 5px 5px #558ABB;
+    }
+
+    .text_d {
+        color: #7FFFD4;
+        font-size: 125%;
+        text-shadow: 5px 5px #558ABB;
+        text-align: center;
+    }
+
+    .text_e {
+        color: #D0D0D0;
+        font-size: 150%;
+        text-shadow: 1px 1px 2px blue, 0 0 1em blue, 0 0 0.2em blue;
+    }
+
+    .text_x {
+        color: #87CEFA;
+        font-size: 125%;
+    }
+
+    .btn_new {
+        border: none;
+        border-radius: 10px;
+        text-decoration: none;
+        color: white;
+        background: #0B63F6;
+        box-shadow: 0 5px 0 #003CC5;
+        width: 185px;
+        height: 70px;
+        font-size: 24px;
+        margin: 0 auto;
+        display: block;
+		margin-left: 1240px;
+    }
+
+    .btn_new:hover {
+        background: #003CC5;
+        box-shadow: none;
+        position: relative;
+        top: 5px;
+        cursor: url(lasta.png) 2 2, pointer;
+    }
+
+    .bl {
+        float: left;
+        width: 150px;
+        margin: 0 15px;
+        /*background: #4682B4;*/
+		background: linear-gradient(180deg, #00c6fb, #005bea);
+        padding: 50px 10px;
+		margin-left: 200px;
+    }
+
+    #did-whales-extinct {
+        display: none;
+		text-align:center
+    }
+
+    .ut {
+        text-align: center;
+        font-size: 60px;
+		margin-left: 50px;
+    }
+
+    .number {
+        font-size: 25px;
+    }
+
+    figcaption {
+        font-size: 150%;
+		color: #87CEFA;
+    }
+	audio::-webkit-media-controls-enclosure {
+		background-color: #00BFFF;
+	}
+
+    .body_hide {
+        opacity: 0;
+        transition: .9s opacity ease-in-out;
+    }
+
+    .body_visible {
+        opacity: 1;
+    }
+
+    .huh {
+        background: #1E2460;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        min-width: 141vw;
+        height: 20vh;
+    }
+	.huh1 {
+		justify-content: center;
+		margin-left: 1280px;
+		width: 70px;
+	}
+
+    .menu-icon {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .menu-icon .bar {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        margin: 4px 0;
+    }
+
+    .nav-list {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .nav-list li {
+        margin: 0 15px;
+    }
+
+    .nav-list li a {
+        color: white;
+        text-decoration: none;
+        cursor: url(whale2.png) 2 2, pointer;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1099px) {
+    body {
+        background-image: url('BG4.png');
+        background-size: 1000vw;
+        background-position: center;
+        color: #ffffff;
+        height: auto;
+        cursor: url(whCursor.png) 5 5, move;
+    }
+
+    header {
+        background: #1E2460;
+        color: white;
+        padding: 10px 0;
+        text-align: center;
+        min-width: 100%;
+        height: 200px;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+        height: 150px;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        cursor: url(whale2.png) 2 2, pointer;
+    }
+
+    main {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+        color: #1E90FF;
+        font-weight: bold;
+    }
+
+    .image-container {
+        flex-shrink: 0;
+        width: 100%;
+        margin-left: 0;
+        border: 3px solid transparent;
+        zoom: 90%;
+    }
+
+    .image-container:hover {
+        border: 3px inset #00FFFF;
+        cursor: url(zoom-whale.png) 5 5, zoom-in;
+        zoom: unset;
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px 0;
+        background: #6495ED;
+        color: white;
+        min-width: 100%;
+    }
+
+    .btn, .btn_new {
+        border: none;
+        border-radius: 10px;
+        text-decoration: none;
+        color: white;
+        background: #0B63F6;
+        box-shadow: 0 5px 0 #003CC5;
+        width: 100%;
+        height: 70px;
+        font-size: 24px;
+        margin: 10px 0;
+    }
+
+    .btn:hover, .btn_new:hover {
+        background: #003CC5;
+        box-shadow: none;
+        position: relative;
+        top: 5px;
+        cursor: url(lasta.png) 2 2, pointer;
+    }
+
+    .text_m, .text_n, .text_d, .text_e, .text_x {
+        color: #7FFFD4;
+        font-size: 125%;
+    }
+
+    .huh {
+        background: #1E2460;
+        color: white;
+        padding: 10px 0;
+        text-align: left;
+        min-width: 100%;
+        height: 20vh;
+    }
+
+    .menu-icon {
+        display: flex;
+    }
+
+    .nav-list {
+        display: none;
+        flex-direction: column;
+        background-color: #1E2460;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .nav-list li {
+        margin: 10px 0;
+        text-align: center;
+    }
+}
+
