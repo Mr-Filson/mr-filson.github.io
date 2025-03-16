@@ -287,7 +287,7 @@
     }
 
     header {
-        background: #1E2460;
+        background: linear-gradient(180deg, #00c6fb, #005bea);
         color: white;
         padding: 10px 0;
         text-align: center;
@@ -433,7 +433,7 @@
     }
 
     header {
-        background: #1E2460;
+        background: linear-gradient(180deg, #00c6fb, #005bea);
         color: white;
         padding: 5px 0;
         text-align: center;
